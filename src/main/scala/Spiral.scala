@@ -1,24 +1,5 @@
 object Spiral {
-  // deklaracja wymiarów tablicy
 
-//  val arr = Array.ofDim[Int](3, 3)
-
-  // stworznie listy indexów w kolejności spiralnej dla podanej tablicy
-
-//  val x = SpiralIndex(arr)
-
-  // wypełnienie tablicy liczbami według kolejności spiralnej
-
-//  println(x)
-//
-//  for {
-//    a <- x.indices
-//    //    b <- 1 to  x.indices
-//  } yield {
-//    arr(x(a)._1)(x(a)._2) = a
-//  }
-//
-//  println(arr.map(_.mkString).mkString(" \n "))
 
   def SpiralIndex(ar: Array[Array[Int]]): Seq[(Int, Int)] = {
 
