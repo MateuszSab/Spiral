@@ -1,22 +1,24 @@
-object Spiral extends App {
-// deklaracja wymiarów tablicy
+object Spiral {
+  // deklaracja wymiarów tablicy
 
-  val arr = Array.ofDim[Int](6, 6)
+  val arr = Array.ofDim[Int](3, 3)
 
-// stworznie listy indexów w kolejności spiralnej dla podanej tablicy
+  // stworznie listy indexów w kolejności spiralnej dla podanej tablicy
 
   val x = SpiralIndex(arr)
 
-// wypełnienie tablicy liczbami według kolejności spiralnej
+  // wypełnienie tablicy liczbami według kolejności spiralnej
+
+  println(x)
 
   for {
     a <- x.indices
-//    b <- 1 until  x.indices
+    //    b <- 1 to  x.indices
   } yield {
     arr(x(a)._1)(x(a)._2) = a
   }
 
-  println(arr.map(_.mkString).mkString("\n"))
+  println(arr.map(_.mkString).mkString(" \n "))
 
   def SpiralIndex(ar: Array[Array[Int]]): Seq[(Int, Int)] = {
 
@@ -44,15 +46,12 @@ object Spiral extends App {
       Seq(row1, collast, rowlast, col1).flatten.distinct
     }
 
-
     (1 until n).foldLeft(indexes(n, m)) { (result, c) =>
       val newn = n - c
       val newm = m + c
       Seq(result ++ indexes(newn, newm)).flatten.distinct
     }
 
-
   }
-
 
 }
