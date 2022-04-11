@@ -1,10 +1,18 @@
 object Spiral {
 
+  def printSpiral(size: Int): Unit = {
 
-  def SpiralIndex(ar: Array[Array[Int]]): Seq[(Int, Int)] = {
+    val x = SpiralIndex(size)
+    val arr = Array.ofDim[Int](size, size)
 
-    val arr = ar
-    val n = arr(0).length - 1
+    x.indices.foreach(a => arr(x(a)._1)(x(a)._2) = a)
+
+    println(arr.map(_.mkString).mkString(" \n "))
+  }
+
+  def SpiralIndex(size: Int): Seq[(Int, Int)] = {
+
+    val n = size - 1
     val m = 0
 
     def indexes(n: Int, m: Int) = {
@@ -33,7 +41,5 @@ object Spiral {
       val newm = m + c
       Seq(result ++ indexes(newn, newm)).flatten.distinct
     }
-
   }
-
 }
